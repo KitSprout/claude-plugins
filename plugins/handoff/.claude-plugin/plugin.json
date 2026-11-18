@@ -1,0 +1,40 @@
+{
+  "name": "handoff",
+  "version": "0.2.0",
+  "description": "Write a session handoff file, keep it current at milestones, and print where it is.",
+  "author": {
+    "name": "KitSprout",
+    "url": "https://github.com/KitSprout"
+  },
+  "homepage": "https://github.com/KitSprout/claude-plugins/tree/main/plugins/handoff",
+  "repository": "https://github.com/KitSprout/claude-plugins",
+  "license": "MIT",
+  "userConfig": {
+    "dir": {
+      "type": "string",
+      "title": "Handoff folder",
+      "description": "Where handoff files go when you don't name a place. Absolute, ~/..., or relative to the project root. Empty: <project root>/docs/handoffs/."
+    },
+    "level": {
+      "type": "string",
+      "title": "Default level",
+      "description": "Default level for /handoff. low: a light backup (what automatic updates write). medium: the full handoff, and fix stale statements in project notes and memory. high: medium plus a subagent check. Automatic updates are always low.",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium"
+    },
+    "auto": {
+      "type": "string",
+      "title": "Automatic updates",
+      "description": "on: keep the handoff up to date, silently, at milestones in interactive sessions. off: only when you run /handoff; the session is not told about automatic updates at all.",
+      "options": [
+        "on",
+        "off"
+      ],
+      "default": "on"
+    }
+  }
+}

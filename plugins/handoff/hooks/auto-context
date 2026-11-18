@@ -1,0 +1,21 @@
+#!/bin/sh
+# handoff: tell the session to keep its handoff current, only while
+# the `auto` setting is on.
+#
+# The skill's description triggers automatic updates only through this note,
+# so with `auto` off the model has nothing to load or mention. With `auto`
+# on (or unset, which means on), this prints the note as factual plain
+# text; Claude Code adds a SessionStart hook's plain stdout to the session's
+# context. A resumed session already holds the text, so hooks.json does not
+# run this on resume.
+#
+# Plugin options reach hooks as CLAUDE_PLUGIN_OPTION_<KEY>. Always exits 0.
+
+case ${CLAUDE_PLUGIN_OPTION_AUTO-} in
+off | OFF | Off) exit 0 ;;
+esac
+
+cat <<'EOF'
+handoff: automatic handoff updates are on for this session. At milestones (a finished task the user asked for, a decision of theirs, a suggested new session) Claude loads the handoff skill (if not already loaded) and updates the handoff silently, as its "Automatic" section describes. This does not apply in subagents, forks or one-shot (-p) runs.
+EOF
+exit 0

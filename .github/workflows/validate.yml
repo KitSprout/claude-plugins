@@ -1,0 +1,65 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: JSON files parse
+        run: |
+          python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+          for f in plugins/*/.claude-plugin/plugin.json plugins/*/hooks/hooks.json; do
+            [ -f "$f" ] && python3 -m json.tool "$f" > /dev/null && echo "ok $f"
+          done
+
+      - name: Local marketplace entries resolve to plugin folders with matching names
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          m = json.load(open('.claude-plugin/marketplace.json'))
+          errors = []
+          for p in m['plugins']:
+              src = p['source']
+              if isinstance(src, str):
+                  manifest = os.path.join(src, '.claude-plugin', 'plugin.json')
+                  if not os.path.isfile(manifest):
+                      errors.append(f"{p['name']}: no {manifest}")
+                  elif json.load(open(manifest))['name'] != p['name']:
+                      errors.append(f"{p['name']}: plugin.json name differs")
+              elif src.get('source') in ('git-subdir', 'url') and not (src.get('ref') and src.get('sha')):
+                  errors.append(f"{p['name']}: external source needs both ref and sha")
+          listed = {p['source'] for p in m['plugins'] if isinstance(p['source'], str)}
+          for d in sorted(os.listdir('plugins')):
+              if f'./plugins/{d}' not in listed:
+                  errors.append(f"plugins/{d}: not listed in marketplace.json")
+          print('\n'.join(errors) or f"ok: {len(m['plugins'])} entries")
+          sys.exit(1 if errors else 0)
+          PY
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: claude plugin validate
+        run: |
+          claude plugin validate .
+          for d in plugins/*/; do claude plugin validate "$d"; done
+
+      - name: Model-free plugin checks
+        run: |
+          for s in plugins/*/evals/static-checks.sh; do [ -f "$s" ] && bash "$s"; done
+
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

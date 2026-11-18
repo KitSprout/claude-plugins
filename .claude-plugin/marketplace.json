@@ -1,0 +1,25 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "kitsprout",
+  "description": "Claude Code plugins by KitSprout",
+  "owner": {
+    "name": "KitSprout",
+    "url": "https://github.com/KitSprout"
+  },
+  "plugins": [
+    {
+      "name": "handoff",
+      "description": "Write a session handoff file, keep it current at milestones, and print where it is.",
+      "source": "./plugins/handoff",
+      "category": "productivity",
+      "homepage": "https://github.com/KitSprout/claude-plugins/tree/main/plugins/handoff"
+    },
+    {
+      "name": "debate",
+      "description": "Run a subagent debate or multi-reviewer challenge when asked in words or with /debate:debate, at a preset (low, medium, high, max; medium by default) with adjustable settings; every role's model is set explicitly, the brief is sourced, a judge verifies, and time and usage are measured",
+      "source": "./plugins/debate",
+      "category": "productivity",
+      "homepage": "https://github.com/KitSprout/claude-plugins/tree/main/plugins/debate"
+    }
+  ]
+}

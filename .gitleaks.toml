@@ -1,0 +1,8 @@
+# The handoff eval plants this fake key to check that a handoff never copies a
+# secret out of a tool output. It is not a credential.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "fake key used by the handoff eval fixtures"
+regexes = ['''sk-test-9f8e7d6c5b4a3210''']
