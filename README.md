@@ -1,6 +1,8 @@
 # KitSprout Claude Code plugins
 
-KitSprout 的 Claude Code 外掛。Claude Code plugins by KitSprout.
+**English** | [繁體中文](README.zh-TW.md)
+
+Claude Code plugins by KitSprout.
 
 ```
 /plugin marketplace add KitSprout/claude-plugins
@@ -50,6 +52,7 @@ A new release of such a tool reaches users only when its `ref` and `sha` are upd
 - **Names are permanent.** A plugin's `name` is how installs find it. Change `displayName` to relabel it; if a rename cannot be avoided, add `"renames": {"old": "new"}` to `marketplace.json` so existing installs migrate.
 - **Versions.** Raise `version` in `plugin.json` with every change users should receive.
 - **Tests.** A plugin with an `evals/` folder documents how to run it and its latest results in its README.
+- **Translations.** `README.zh-TW.md` translates this file; when they differ, this file wins. Keep both in step when you change either.
 - **Before every push:** no personal data, keys, passwords, private hostnames or machine identifiers in any file. CI runs a generic secret scan; it cannot know what is private to you.
 
 ## Checks

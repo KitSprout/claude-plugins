@@ -11,7 +11,7 @@ One skill, `debate`, that runs a subagent debate or a multi-reviewer challenge a
 
 ## Use
 
-Ask in words in any language (「subagent 互相辯論」, "debate this plan"), or type the command:
+Ask in words, in any language ("have subagents debate this", "debate this plan"), or type the command:
 
 ```
 /debate:debate [low|medium|high|max] [setting=value ...] <what to debate>

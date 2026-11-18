@@ -4,4 +4,4 @@ max_turns: 15
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-我等一下要 /clear，先把現在的進度和還沒決定的事情記下來，明天開新的對話繼續。
+I'm going to /clear in a minute. Write down where we are and what's still undecided first, I'll continue in a new chat tomorrow.

@@ -1,6 +1,5 @@
 # handoff — session handoff for Claude Code
 
-換 session 前寫一份交接檔，寫完印出完整路徑。新 session 貼「讀 <路徑> 繼續」就接上。
 Writes a handoff file before you switch Claude Code sessions and prints its full path. In the new session, paste "Read <path> and continue".
 
 ## Install
@@ -55,6 +54,7 @@ Change them in `/config`, or under `pluginConfigs` in `~/.claude/settings.json` 
 
 0.2.0 renamed the plugin and its skill from `session-handoff` to `handoff` when it moved to this repository; the skill text is that of `session-handoff` 0.1.5. The test results below were measured under the old name.
 After the rename the trigger cases were run again on `claude-opus-5-5` (2026-11-19): 15 / 15 should-trigger runs loaded the skill, 0 / 12 near misses did.
+After the eval scenarios were translated to English, they were run again on `claude-opus-5-5` (2026-11-19): trigger cases 15 / 15 and 0 / 12 (three runs each), quality cases one run each with every assertion passed.
 
 ## Testing
 
@@ -78,7 +78,7 @@ bash evals/static-checks.sh
 
 ### Results: 0.1.4 vs 0.1.5 (2026-11-18)
 
-Claude Code 2.1.323, judge `sonnet`, 3 runs per case per version, on two agent models: `claude-opus-5-5` (the default here) and `claude-haiku-5-5`.
+Claude Code 2.1.323, judge `sonnet`, 3 runs per case per version, on two agent models: `claude-opus-5-5` (the default here) and `claude-haiku-5-5`. The scenarios and prompts were in Traditional Chinese at the time; 0.2.0 translated them to English.
 
 | | 0.1.4 | 0.1.5 |
 |---|---|---|

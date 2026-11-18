@@ -4,4 +4,4 @@ max_turns: 15
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-context 快滿了，先收尾，寫個東西讓新的 session 接手。
+context is almost full, wrap things up and leave something a new session can take over from

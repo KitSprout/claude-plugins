@@ -1,6 +1,6 @@
 ---
 name: debate
-description: Run a subagent debate or multi-reviewer challenge on a design, plan, specification or decision, at a preset (low, medium, high, max) with adjustable settings, and bring the result back to the user. Use whenever the user asks subagents to debate, argue, challenge each other, or review and debate something, in any language (for example 「subagent 互相辯論」, 「審閱並互相辯論」), even as a one-line request, or types /debate:debate; when only a rule or another skill calls for a debate, load this skill to propose it, and wait. Not for a single independent review by one subagent.
+description: Run a subagent debate or multi-reviewer challenge on a design, plan, specification or decision, at a preset (low, medium, high, max) with adjustable settings, and bring the result back to the user. Use whenever the user asks subagents to debate, argue, challenge each other, or review and debate something, in any language (for example "have the subagents debate this", "review it and argue it out"), even as a one-line request, or types /debate:debate; when only a rule or another skill calls for a debate, load this skill to propose it, and wait. Not for a single independent review by one subagent.
 argument-hint: "[low|medium|high|max] [setting=value ...] <what to debate>"
 ---
 
@@ -19,7 +19,7 @@ The user starts a debate by typing the command or by asking for one in words; ei
   - a `key=value` word with a known key (section 3) is a setting wherever it stands; a repeated key takes its last value;
   - an unknown key, a value outside its choices, or an old preset name (`quick`, `standard`, `gate`) as the first word is named in the start line and ignored;
   - the rest is the subject. When it is missing or unclear, take it from the conversation and say how you read it.
-- When the user asked in words instead, read their message, not `$ARGUMENTS`: take a preset only when they name it as one (「用 high」, "at low"), and a setting only when they give its value ("two sides", 「一輪」). The rest is the subject or context. State the reading in the start line.
+- When the user asked in words instead, read their message, not `$ARGUMENTS`: take a preset only when they name it as one ("use high", "at low"), and a setting only when they give its value ("two sides", "one round"). The rest is the subject or context. State the reading in the start line.
 - With no preset named, use `medium`: its time and usage are close to those of the earlier debates that read sources (`references/usage.md`). Never use `max` unless the user names it.
 - When one objective check could settle the question (a test, reading the code, counting real data), run it if it is cheap and read-only. If it settles the question, say so and ask whether to still debate; otherwise go on.
 - Choose the format (section 2). State in one line: format, preset, the settings that differ from it, expected minutes and tokens (`references/usage.md`). Then start.

@@ -5,6 +5,6 @@ tags: [quality]
 context:
   scaffold_script: scaffold.sh
 execution:
-  prompt: 隔壁那個 session（id 33333333-4444-4555-8666-777777777777）context 滿了，每則訊息都回 Prompt is too long，已經不能用。它的對話紀錄複製在 transcripts/dead-session.jsonl。幫它寫一份交接檔，讓新 session 可以接手。
+  prompt: "The session next door (id 33333333-4444-4555-8666-777777777777) has a full context: every message answers Prompt is too long, so it can't be used any more. Its transcript is copied to transcripts/dead-session.jsonl. Write a handoff for it so a new session can take over."
   max_turns: 30
   allowed_tools: [Read, Glob, Grep, Skill, Write, Edit, Bash]
