@@ -47,6 +47,14 @@ jobs:
           sys.exit(1 if errors else 0)
           PY
 
+      - name: Every README has a Traditional Chinese translation
+        run: |
+          missing=0
+          for f in README.md plugins/*/README.md; do
+            [ -f "${f%README.md}README.zh-TW.md" ] || { echo "missing ${f%README.md}README.zh-TW.md"; missing=1; }
+          done
+          exit $missing
+
       - name: Install Claude Code
         run: npm install -g @anthropic-ai/claude-code
 

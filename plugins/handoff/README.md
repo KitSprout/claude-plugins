@@ -1,5 +1,7 @@
 # handoff — session handoff for Claude Code
 
+**English** | [繁體中文](README.zh-TW.md)
+
 Writes a handoff file before you switch Claude Code sessions and prints its full path. In the new session, paste "Read <path> and continue".
 
 ## Install

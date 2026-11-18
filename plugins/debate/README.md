@@ -1,5 +1,7 @@
 # debate
 
+**English** | [繁體中文](README.zh-TW.md)
+
 One skill, `debate`, that runs a subagent debate or a multi-reviewer challenge and brings the result back to the user.
 
 ## Install
