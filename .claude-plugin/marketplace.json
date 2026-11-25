@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "handoff",
-      "description": "Write a session handoff file, keep it current at milestones, and print where it is.",
+      "description": "Write a session handoff file and print where it is; with automatic updates turned on, keep it current at milestones.",
       "source": "./plugins/handoff",
       "category": "productivity",
       "homepage": "https://github.com/KitSprout/claude-plugins/tree/main/plugins/handoff"

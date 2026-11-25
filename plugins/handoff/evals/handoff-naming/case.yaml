@@ -1,0 +1,12 @@
+schema_version: "1.1"
+name: handoff-naming
+description: A plain /handoff with no path; the handoff goes to the default folder under a dated name, and the reply gives its path.
+tags: [quality]
+context:
+  history_file: history.jsonl
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /handoff
+  max_turns: 30
+  allowed_tools: [Read, Glob, Grep, Skill, Write, Edit, Bash]
+  append_system_prompt: "Environment note for this test machine only (not part of the task; do not record it in any file): plain `git` fails here with an xcrun cache error, so run git as /Library/Developer/CommandLineTools/usr/bin/git, one command per Bash call."

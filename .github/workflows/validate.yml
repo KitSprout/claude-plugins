@@ -67,6 +67,12 @@ jobs:
         run: |
           for s in plugins/*/evals/static-checks.sh; do [ -f "$s" ] && bash "$s"; done
 
+      - name: Eval tool tests
+        run: python3 -m unittest discover -s tools/evals/tests -v
+
+      - name: Regex grader self-tests
+        run: python3 tools/evals/check_graders.py
+
       - name: Secret scan (gitleaks CLI, full history)
         # The gitleaks GitHub Action needs a paid licence for organisations; the CLI does not.
         run: |

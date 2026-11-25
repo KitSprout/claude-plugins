@@ -1,5 +1,5 @@
 ---
 type: regex
 target: last_message
-pattern: 'docs/handoffs/[^\s`]*\.md'
+pattern: 'docs/handoffs/eval-manual\.md'
 ---

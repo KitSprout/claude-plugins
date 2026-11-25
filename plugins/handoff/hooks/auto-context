@@ -3,19 +3,23 @@
 # the `auto` setting is on.
 #
 # The skill's description triggers automatic updates only through this note,
-# so with `auto` off the model has nothing to load or mention. With `auto`
-# on (or unset, which means on), this prints the note as factual plain
-# text; Claude Code adds a SessionStart hook's plain stdout to the session's
+# so without it the model has nothing to load or mention. Only `on`, `On` or
+# `ON` print it; unset (the default is off) or any other value is off.
+# Claude Code adds a SessionStart hook's plain stdout to the session's
 # context. A resumed session already holds the text, so hooks.json does not
 # run this on resume.
+# Cloud sessions (CLAUDE_CODE_REMOTE=true) get nothing: `auto` cannot be set
+# there, and a file that is not pushed is lost with the session's VM.
 #
 # Plugin options reach hooks as CLAUDE_PLUGIN_OPTION_<KEY>. Always exits 0.
 
-case ${CLAUDE_PLUGIN_OPTION_AUTO-} in
-off | OFF | Off) exit 0 ;;
+case ${CLAUDE_PLUGIN_OPTION_AUTO:-off} in
+on | On | ON) ;;
+*) exit 0 ;;
 esac
+[ "${CLAUDE_CODE_REMOTE-}" = true ] && exit 0
 
 cat <<'EOF'
-handoff: automatic handoff updates are on for this session. At milestones (a finished task the user asked for, a decision of theirs, a suggested new session) Claude loads the handoff skill (if not already loaded) and updates the handoff silently, as its "Automatic" section describes. This does not apply in subagents, forks or one-shot (-p) runs.
+handoff: automatic handoff updates are on for this session. At milestones (a finished task the user asked for, a decision of theirs), once the user has typed at least two messages in this conversation, Claude loads the handoff skill and updates the handoff silently, as its "Automatic" section describes. This does not apply in subagents.
 EOF
 exit 0

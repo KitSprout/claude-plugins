@@ -51,13 +51,13 @@ A new release of such a tool reaches users only when its `ref` and `sha` are upd
 
 - **Names are permanent.** A plugin's `name` is how installs find it. Change `displayName` to relabel it; if a rename cannot be avoided, add `"renames": {"old": "new"}` to `marketplace.json` so existing installs migrate.
 - **Versions.** Raise `version` in `plugin.json` with every change users should receive.
-- **Tests.** A plugin with an `evals/` folder documents how to run it and its latest results in its README.
+- **Tests.** A plugin with an `evals/` folder follows [TESTING.md](TESTING.md): it keeps `evals/suite.json` and commits a summary of every measurement under `evals/baselines/`.
 - **Translations.** Every `README.md`, at the root and in each plugin, has a `README.zh-TW.md` beside it; when they differ, the English file wins. Keep both in step when you change either.
 - **Before every push:** no personal data, keys, passwords, private hostnames or machine identifiers in any file. CI runs a generic secret scan; it cannot know what is private to you.
 
 ## Checks
 
-`.github/workflows/validate.yml` checks on every pull request that JSON files parse, every local entry points to a folder whose `plugin.json` has the same name, every folder under `plugins/` is listed, every README has a `README.zh-TW.md`, external entries carry `ref` and `sha`, `claude plugin validate` passes for the marketplace and each plugin, model-free plugin checks pass, and no secrets are committed.
+`.github/workflows/validate.yml` checks on every pull request that JSON files parse, every local entry points to a folder whose `plugin.json` has the same name, every folder under `plugins/` is listed, every README has a `README.zh-TW.md`, external entries carry `ref` and `sha`, `claude plugin validate` passes for the marketplace and each plugin, model-free plugin checks pass, the eval tool tests pass, every regex grader passes its own pass/fail samples, and no secrets are committed.
 
 ## License
 

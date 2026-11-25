@@ -1,0 +1,1 @@
+I can't write that handoff from here. Run `/handoff:rescue <session id or transcript path>` and it will be written from that session's transcript.

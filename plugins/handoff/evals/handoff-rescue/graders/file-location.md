@@ -1,5 +1,4 @@
 ---
-type: regex
-target: trace
-pattern: 'docs/handoffs/[^"\s]+\.md'
+type: file_exists
+path: docs/handoffs/eval-rescue.md
 ---
