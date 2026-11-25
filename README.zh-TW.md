@@ -53,13 +53,13 @@ plugins/<名稱>/                   小型外掛放在這裡，一個外掛一�
 
 - **名稱不可變更。** 外掛的 `name` 是安裝時用來對應的依據。只想改顯示名稱時，改 `displayName`；非改名不可時，在 `marketplace.json` 加上 `"renames": {"舊名": "新名"}`，讓已安裝的使用者自動轉移。
 - **版本號。** 每次有使用者應該收到的變更，都要提高 `plugin.json` 的 `version`。
-- **測試。** 有 `evals/` 資料夾的外掛，會在自己的 README 說明執行方式和最近一次的結果。
+- **測試。** 有 `evals/` 資料夾的外掛，遵循 [TESTING.md](TESTING.md)（英文）：維護 `evals/suite.json`，並把每次測量的摘要提交到 `evals/baselines/`。
 - **翻譯。** 每份 `README.md` 旁都有一份 `README.zh-TW.md` 翻譯；兩者不一致時以英文版為準。修改任一份時，請同步更新另一份。
 - **每次 push 前：** 任何檔案都不能含個人資料、金鑰、密碼、私有主機名稱或機器識別資訊。CI 會跑通用的機密掃描，但它無從得知哪些內容對您而言屬於隱私。
 
 ## 檢查項目
 
-`.github/workflows/validate.yml` 會在每個 pull request 檢查：JSON 檔案格式正確；每個本地項目都指向一個資料夾，且其 `plugin.json` 的名稱相同；`plugins/` 底下每個資料夾都有列在 marketplace；每份 README 都有 `README.zh-TW.md`；外部來源同時有 `ref` 和 `sha`；marketplace 和每個外掛都通過 `claude plugin validate`；不需模型的外掛檢查通過；沒有提交任何機密。
+`.github/workflows/validate.yml` 會在每個 pull request 檢查：JSON 檔案格式正確；每個本地項目都指向一個資料夾，且其 `plugin.json` 的名稱相同；`plugins/` 底下每個資料夾都有列在 marketplace；每份 README 都有 `README.zh-TW.md`；外部來源同時有 `ref` 和 `sha`；marketplace 和每個外掛都通過 `claude plugin validate`；不需模型的外掛檢查通過；評測工具的測試通過；每個 regex grader 都通過自己的通過／失敗樣本；沒有提交任何機密。
 
 ## 授權
 
