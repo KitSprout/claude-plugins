@@ -1,7 +1,7 @@
 {
   "name": "handoff",
-  "version": "0.2.0",
-  "description": "Write a session handoff file, keep it current at milestones, and print where it is.",
+  "version": "0.3.0",
+  "description": "Write a session handoff file and print where it is; with automatic updates turned on, keep it current at milestones.",
   "author": {
     "name": "KitSprout",
     "url": "https://github.com/KitSprout"
@@ -18,7 +18,7 @@
     "level": {
       "type": "string",
       "title": "Default level",
-      "description": "Default level for /handoff. low: a light backup (what automatic updates write). medium: the full handoff, and fix stale statements in project notes and memory. high: medium plus a subagent check. Automatic updates are always low.",
+      "description": "Default level for /handoff. low: a light backup (what automatic updates write; the first one also records the goal and your rules). medium: the full handoff. high: medium plus a subagent check. Automatic updates are always low.",
       "options": [
         "low",
         "medium",
@@ -29,12 +29,12 @@
     "auto": {
       "type": "string",
       "title": "Automatic updates",
-      "description": "on: keep the handoff up to date, silently, at milestones in interactive sessions. off: only when you run /handoff; the session is not told about automatic updates at all.",
+      "description": "off (the default): only when you run /handoff; the session is not told about automatic updates at all. on: keep the handoff up to date, silently, at milestones in the main conversation, once you have typed two messages. Not in Claude Code on the web.",
       "options": [
         "on",
         "off"
       ],
-      "default": "on"
+      "default": "off"
     }
   }
 }
