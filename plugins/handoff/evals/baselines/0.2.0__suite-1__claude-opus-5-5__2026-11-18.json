@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "plugin": "handoff",
+  "plugin_version": "0.2.0",
+  "plugin_commit": "f421527",
+  "suite": 1,
+  "claude_code": "2.1.323",
+  "model": "claude-opus-5-5",
+  "judge": "sonnet",
+  "runs": 3,
+  "date": "2026-11-18",
+  "partial": false,
+  "skill_bytes": 6879,
+  "traps": [],
+  "notes": [
+    "Merged from result folders 2026-11-18T16-42-36-567Z (trigger and near-miss cases, English prompts, 3 runs each; UTC date, 2026-11-19 local) and 2026-11-18T16-43-59-235Z (quality cases, 1 run each, all graders passed). The earlier run 2026-11-18T16-29-39-995Z (Chinese-prompt trigger and near-miss cases after the rename: 15/15 should-trigger runs loaded the skill, 0/12 near misses did; recorded in the README History; no separate summary file) is not included. Triggers 15/15, near-miss 0/12 wrongly loaded.",
+    "suite 1 known defects: git failed in the sandbox; no-secret grader read file names only; llm judges saw the first and last 12 trace messages; rescue fixture unrealistic",
+    "traps not defined for suite 1"
+  ],
+  "cases": {
+    "handoff-continued": {
+      "runs": 1,
+      "errors": 0,
+      "agent_cost_usd": 0.196,
+      "judge_cost_usd": 1.99,
+      "graders": {
+        "answered-not-waiting": {
+          "passed": 1,
+          "scored": 1
+        },
+        "continues-from": {
+          "passed": 1,
+          "scored": 1
+        },
+        "done-not-pending": {
+          "passed": 1,
+          "scored": 1
+        },
+        "kept-rejection": {
+          "passed": 1,
+          "scored": 1
+        },
+        "new-decision": {
+          "passed": 1,
+          "scored": 1
+        },
+        "new-file": {
+          "passed": 1,
+          "scored": 1
+        },
+        "old-untouched-edit": {
+          "passed": 1,
+          "scored": 1
+        },
+        "old-untouched-write": {
+          "passed": 1,
+          "scored": 1
+        },
+        "stale-fact": {
+          "passed": 1,
+          "scored": 1
+        }
+      }
+    },
+    "handoff-manual": {
+      "runs": 1,
+      "errors": 0,
+      "agent_cost_usd": 0.222,
+      "judge_cost_usd": 2.535,
+      "graders": {
+        "decision-in-full": {
+          "passed": 1,
+          "scored": 1
+        },
+        "file-location": {
+          "passed": 1,
+          "scored": 1
+        },
+        "local-only": {
+          "passed": 1,
+          "scored": 1
+        },
+        "no-false-approval": {
+          "passed": 1,
+          "scored": 1
+        },
+        "no-secret": {
+          "passed": 1,
+          "scored": 1
+        },
+        "path-reported": {
+          "passed": 1,
+          "scored": 1
+        },
+        "rejected-option": {
+          "passed": 1,
+          "scored": 1
+        },
+        "uncommitted": {
+          "passed": 1,
+          "scored": 1
+        },
+        "user-rule": {
+          "passed": 1,
+          "scored": 1
+        },
+        "user-words": {
+          "passed": 1,
+          "scored": 1
+        },
+        "waiting-question": {
+          "passed": 1,
+          "scored": 1
+        }
+      }
+    },
+    "handoff-rescue": {
+      "runs": 1,
+      "errors": 0,
+      "agent_cost_usd": 0.239,
+      "judge_cost_usd": 2.312,
+      "graders": {
+        "file-location": {
+          "passed": 1,
+          "scored": 1
+        },
+        "no-false-approval": {
+          "passed": 1,
+          "scored": 1
+        },
+        "session-line": {
+          "passed": 1,
+          "scored": 1
+        },
+        "skill-fired": {
+          "passed": 1,
+          "scored": 1
+        },
+        "test-rule": {
+          "passed": 1,
+          "scored": 1
+        },
+        "unfinished-marked": {
+          "passed": 1,
+          "scored": 1
+        },
+        "user-decision": {
+          "passed": 1,
+          "scored": 1
+        },
+        "waiting-question": {
+          "passed": 1,
+          "scored": 1
+        }
+      }
+    },
+    "nearmiss-decision-log": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.196,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-pr-description": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.193,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-summary": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.166,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-wrap-up-pr": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.196,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-before-clear": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.248,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-context-full": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.248,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-dead-session": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.283,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-english": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.231,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-switch-session": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.249,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    }
+  }
+}

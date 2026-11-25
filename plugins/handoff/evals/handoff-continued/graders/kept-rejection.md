@@ -1,5 +1,5 @@
 ---
 type: llm
-focus: trace
+focus: {source: file, path: docs/handoffs/eval-continued.md}
 ---
-Judge the handoff file written or edited under docs/handoffs/ in this run (the content of the Write or Edit tool calls in the trace); ignore everything else in the trace. PASS if the new handoff still carries the earlier rejection of polling the sensor over Bluetooth (range too short), in full or as a pointer to the earlier handoff. FAIL if it is lost. Judge only a handoff other than docs/handoffs/2026-11-16-0900-station.md.
+PASS if the handoff itself states that polling the sensor over Bluetooth was rejected and why (the range was too short in the garden). FAIL if it only points to the earlier handoff, leaves out the reason, or drops the rejection.

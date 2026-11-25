@@ -1,10 +1,11 @@
 schema_version: "1.1"
 name: handoff-rescue
-description: Another session's context is full; this session writes its handoff from the copied transcript.
+description: Another session's context is full; the user runs /handoff:rescue with its transcript path and the output path; the session's id is only in the transcript. The handoff is written from the transcript.
 tags: [quality]
 context:
   scaffold_script: scaffold.sh
 execution:
-  prompt: "The session next door (id 33333333-4444-4555-8666-777777777777) has a full context: every message answers Prompt is too long, so it can't be used any more. Its transcript is copied to transcripts/dead-session.jsonl. Write a handoff for it so a new session can take over."
+  prompt: /handoff:rescue transcripts/dead-session.jsonl docs/handoffs/eval-rescue.md
   max_turns: 30
   allowed_tools: [Read, Glob, Grep, Skill, Write, Edit, Bash]
+  append_system_prompt: "Environment note for this test machine only (not part of the task; do not record it in any file): plain `git` fails here with an xcrun cache error, so run git as /Library/Developer/CommandLineTools/usr/bin/git, one command per Bash call."

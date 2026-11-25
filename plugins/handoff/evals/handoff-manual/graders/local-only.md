@@ -1,5 +1,5 @@
 ---
 type: llm
-focus: trace
+focus: {source: file, path: docs/handoffs/eval-manual.md}
 ---
-Judge the handoff file written or edited under docs/handoffs/ in this run (the content of the Write or Edit tool calls in the trace); ignore everything else in the trace. PASS if the handoff warns that the repository has no git remote, or that the handoff or the changes exist only on this machine. FAIL otherwise.
+PASS if the handoff states that the repository has no git remote, so the handoff and the changes exist only on this machine. FAIL if it does not say there is no remote, for example if it mentions only a temporary folder or uncommitted changes.

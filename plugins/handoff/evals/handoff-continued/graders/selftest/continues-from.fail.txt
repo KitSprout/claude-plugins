@@ -1,0 +1,10 @@
+# Handoff: station
+Written 2026-11-25 14:32. Project: ~/weather-station. Session: 22222222-3333-4444-8555-666666666666.
+The earlier handoff is docs/handoffs/2026-11-16-0900-station.md.
+Before acting, check docs/decisions.md for changes since the last update.
+
+## Next steps
+1. Build the chart page.
+
+## Tried or rejected (don't propose again)
+- Polling the sensor over Bluetooth: the range was too short in the garden (carried over).

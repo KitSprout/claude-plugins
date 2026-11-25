@@ -1,0 +1,1 @@
+I can't write this handoff: I have nothing to build it from. The dead session's transcript is not readable from here. Run /handoff in a session that can read it, or give me the transcript.

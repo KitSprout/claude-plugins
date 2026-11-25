@@ -1,0 +1,6 @@
+---
+type: regex
+target: {source: file, path: docs/handoffs/2026-11-17-1000-station.md}
+pattern: '## Update'
+match: not_contains
+---

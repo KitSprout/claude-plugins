@@ -1,0 +1,1 @@
+Added the header row: station/logger.py now writes `time,temperature` as the first line of each new CSV file, with times in UTC. Not committed yet. I also updated the handoff.

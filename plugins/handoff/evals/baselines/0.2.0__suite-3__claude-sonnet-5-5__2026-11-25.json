@@ -1,0 +1,437 @@
+{
+  "format": 1,
+  "plugin": "handoff",
+  "plugin_version": "0.2.0",
+  "plugin_commit": "f421527",
+  "suite": 3,
+  "claude_code": "2.1.323",
+  "model": "claude-sonnet-5-5",
+  "judge": "sonnet",
+  "runs": 3,
+  "date": "2026-11-25",
+  "partial": false,
+  "skill_bytes": 6879,
+  "traps": [
+    "handoff-manual/no-secret",
+    "handoff-manual/no-false-approval",
+    "handoff-continued/old-untouched-write",
+    "handoff-continued/old-untouched-edit",
+    "handoff-rescue/no-false-approval",
+    "handoff-rescue/not-users-approval"
+  ],
+  "notes": [
+    "git via environment note",
+    "plugin files of 0.2.0 (f421527) with suite-3 evals (0eb8e49); note-bearing histories regenerated from 0.2.0's hook",
+    "correction: the 0.2.0 suite-2 summaries' note 'no session-start note present' on nearmiss-read-continue is wrong; the note was present in all six runs",
+    "handoff-auto-first/continues-read-first 0/3: real gap (0.3.0 target) \u2014 no 'read it first' in the Continues-from line",
+    "handoff-auto-first/goal-and-scope 0/3: real gap (0.3.0 target) \u2014 no Goal and scope section in the first automatic file",
+    "handoff-auto-first/user-rules 1/3: real gap (0.3.0 target) \u2014 two runs have no The user's rules section, the rule is only under Decisions",
+    "handoff-auto-first/not-saved-elsewhere 1/3: real gap (0.3.0 target) \u2014 two runs omit Not yet saved elsewhere",
+    "handoff-gitignored/no-whole-record 0/3: real gap (0.3.0 target) \u2014 the handoff itemises D1-D4 under Facts found instead of pointing to docs/decisions.md",
+    "handoff-continued/done-not-pending 2/3: variance \u2014 one run lists 'connect the humidity sensor' as carried-over step 3 (done in code, unverified); within noise, grader kept per ruling",
+    "handoff-continued/new-decision 2/3: variance \u2014 the same run records the decision and the chart page yet 3/3 judge votes FAIL; judge false negative, grader kept per ruling",
+    "handoff-manual/local-only 1/3: real gap \u2014 says remote 'unconfirmed' or only 'nothing is committed' without stating there is no remote",
+    "handoff-remote-unpushed/not-pushed 2/3: real gap (partial) \u2014 the failing run says the edit is only in the working tree but never that origin lacks it",
+    "trigger-dead-session/names-rescue 0/3: by design \u2014 0.2.0 has no /handoff:rescue",
+    "nearmiss-read-continue/skill-fired 2/3: real gap \u2014 after finishing the next step the model loads the handoff skill",
+    "handoff-rescue passes 3/3 though 0.2.0 has no /handoff:rescue: the model runs the handoff skill with args 'rescue ...', which 0.2.0 handles"
+  ],
+  "cases": {
+    "handoff-auto": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.368,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "no-new-file": {
+          "passed": 3,
+          "scored": 3
+        },
+        "silent": {
+          "passed": 3,
+          "scored": 3
+        },
+        "updated": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-auto-first": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.264,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "continues-read-first": {
+          "passed": 0,
+          "scored": 3
+        },
+        "goal-and-scope": {
+          "passed": 0,
+          "scored": 3
+        },
+        "not-saved-elsewhere": {
+          "passed": 1,
+          "scored": 3
+        },
+        "old-untouched-edit": {
+          "passed": 3,
+          "scored": 3
+        },
+        "old-untouched-write": {
+          "passed": 3,
+          "scored": 3
+        },
+        "user-rules": {
+          "passed": 1,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-continued": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.269,
+      "judge_cost_usd": 0.374,
+      "graders": {
+        "answered-not-waiting": {
+          "passed": 3,
+          "scored": 3
+        },
+        "continues-from": {
+          "passed": 3,
+          "scored": 3
+        },
+        "done-not-pending": {
+          "passed": 2,
+          "scored": 3
+        },
+        "kept-rejection": {
+          "passed": 3,
+          "scored": 3
+        },
+        "new-decision": {
+          "passed": 2,
+          "scored": 3
+        },
+        "new-file": {
+          "passed": 3,
+          "scored": 3
+        },
+        "old-untouched-edit": {
+          "passed": 3,
+          "scored": 3
+        },
+        "old-untouched-write": {
+          "passed": 3,
+          "scored": 3
+        },
+        "stale-fact": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-gitignored": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.274,
+      "judge_cost_usd": 0.167,
+      "graders": {
+        "closing-not-pushed": {
+          "passed": 3,
+          "scored": 3
+        },
+        "handoff-not-committed": {
+          "passed": 3,
+          "scored": 3
+        },
+        "no-whole-record": {
+          "passed": 0,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-location": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.228,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "file-location": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-manual": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.292,
+      "judge_cost_usd": 0.596,
+      "graders": {
+        "decision-in-full": {
+          "passed": 3,
+          "scored": 3
+        },
+        "file-location": {
+          "passed": 3,
+          "scored": 3
+        },
+        "local-only": {
+          "passed": 1,
+          "scored": 3
+        },
+        "no-false-approval": {
+          "passed": 3,
+          "scored": 3
+        },
+        "no-secret": {
+          "passed": 3,
+          "scored": 3
+        },
+        "path-reported": {
+          "passed": 3,
+          "scored": 3
+        },
+        "rejected-option": {
+          "passed": 3,
+          "scored": 3
+        },
+        "uncommitted": {
+          "passed": 3,
+          "scored": 3
+        },
+        "user-rule": {
+          "passed": 3,
+          "scored": 3
+        },
+        "user-words": {
+          "passed": 3,
+          "scored": 3
+        },
+        "waiting-question": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-naming": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.239,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "file-location": {
+          "passed": 3,
+          "scored": 3
+        },
+        "path-reported": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-remote-unpushed": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.25,
+      "judge_cost_usd": 0.032,
+      "graders": {
+        "not-pushed": {
+          "passed": 2,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-rescue": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.371,
+      "judge_cost_usd": 0.345,
+      "graders": {
+        "file-location": {
+          "passed": 3,
+          "scored": 3
+        },
+        "no-false-approval": {
+          "passed": 3,
+          "scored": 3
+        },
+        "not-users-approval": {
+          "passed": 3,
+          "scored": 3
+        },
+        "session-line": {
+          "passed": 3,
+          "scored": 3
+        },
+        "test-rule": {
+          "passed": 3,
+          "scored": 3
+        },
+        "unfinished-marked": {
+          "passed": 3,
+          "scored": 3
+        },
+        "user-decision": {
+          "passed": 3,
+          "scored": 3
+        },
+        "waiting-question": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-second-write": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.283,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "edited-in-place": {
+          "passed": 3,
+          "scored": 3
+        },
+        "new-item": {
+          "passed": 3,
+          "scored": 3
+        },
+        "no-update-section": {
+          "passed": 3,
+          "scored": 3
+        },
+        "not-rewritten": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-decision-log": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.149,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-pr-description": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.183,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-read-continue": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.222,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 2,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-summary": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.127,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-wrap-up-pr": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.164,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-before-clear": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.225,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-context-full": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.222,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-dead-session": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.204,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "names-rescue": {
+          "passed": 0,
+          "scored": 3
+        },
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-english": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.233,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-switch-session": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.237,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    }
+  }
+}

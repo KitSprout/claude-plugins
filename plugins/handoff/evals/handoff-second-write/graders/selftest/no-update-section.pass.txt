@@ -1,0 +1,23 @@
+# Handoff: station
+Written 2026-11-17 10:00; updated 2026-11-25 14:40. Project: /workspace. Session: 44444444-5555-4666-8777-888888888888.
+Before acting, check docs/decisions.md for changes since the last update.
+
+## Goal and scope
+The weather-station logger on the Raspberry Pi: sample every 5 minutes, and export each day's readings every night.
+
+## Where things stand
+INTERVAL in station/logger.py is 300 seconds (was 60). station/export.py copies the previous day's readings to exports/<date>.csv. Neither is committed.
+
+## Next steps
+1. Set up the schedule that runs station/export.py every night at 00:10 (the user: tomorrow).
+
+## Decisions
+- Sample every 5 minutes instead of every minute (the user, 2026-11-17).
+- "Run it at 00:10 every night." (the user, about the export)
+
+## What changed
+- station/logger.py: INTERVAL 60 -> 300 (uncommitted).
+- station/export.py: new (uncommitted).
+
+## Not yet saved elsewhere
+- The 5-minute interval and the 00:10 export time (only in this handoff).

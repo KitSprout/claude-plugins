@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "plugin": "handoff",
+  "plugin_version": "0.1.4",
+  "plugin_commit": "session-handoff 0.1.4",
+  "suite": 1,
+  "claude_code": "2.1.323",
+  "model": "claude-haiku-5-5",
+  "judge": "sonnet",
+  "runs": 3,
+  "date": "2026-11-18",
+  "partial": false,
+  "skill_bytes": 8364,
+  "traps": [],
+  "notes": [
+    "Plugin was named session-handoff at this version; plugin field says handoff because the summary was made in this repository. Source result folder: haiku-v014 (all 12 cases, 3 runs). Quality here: raw 69/84; README says 68/81. Excluding the 3 done-not-pending runs (all passed) gives 66/81, which does not match 68/81; Likely cause (hypothesis): the README subtracted 1/3 for done-not-pending as for Opus, but this Haiku run started at 14:41 UTC, after the scenario fix, and its done-not-pending passed 3/3; so the data is 69/84 (66/81 if that grader is excluded) and the README's 68/81 is probably wrong. Counts are kept as recorded. Rescue skill-fired 1/3 and file-location 1/3 match the README. Triggers 15/15, near-miss 0/12 wrongly loaded.",
+    "suite 1 known defects: git failed in the sandbox; no-secret grader read file names only; llm judges saw the first and last 12 trace messages; rescue fixture unrealistic",
+    "traps not defined for suite 1"
+  ],
+  "cases": {
+    "handoff-continued": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.025,
+      "judge_cost_usd": 7.63,
+      "graders": {
+        "answered-not-waiting": {
+          "passed": 3,
+          "scored": 3
+        },
+        "continues-from": {
+          "passed": 3,
+          "scored": 3
+        },
+        "done-not-pending": {
+          "passed": 3,
+          "scored": 3
+        },
+        "kept-rejection": {
+          "passed": 3,
+          "scored": 3
+        },
+        "new-decision": {
+          "passed": 3,
+          "scored": 3
+        },
+        "new-file": {
+          "passed": 3,
+          "scored": 3
+        },
+        "old-untouched-edit": {
+          "passed": 3,
+          "scored": 3
+        },
+        "old-untouched-write": {
+          "passed": 3,
+          "scored": 3
+        },
+        "stale-fact": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-manual": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.026,
+      "judge_cost_usd": 8.775,
+      "graders": {
+        "decision-in-full": {
+          "passed": 3,
+          "scored": 3
+        },
+        "file-location": {
+          "passed": 3,
+          "scored": 3
+        },
+        "local-only": {
+          "passed": 0,
+          "scored": 3
+        },
+        "no-false-approval": {
+          "passed": 3,
+          "scored": 3
+        },
+        "no-secret": {
+          "passed": 3,
+          "scored": 3
+        },
+        "path-reported": {
+          "passed": 3,
+          "scored": 3
+        },
+        "rejected-option": {
+          "passed": 0,
+          "scored": 3
+        },
+        "uncommitted": {
+          "passed": 3,
+          "scored": 3
+        },
+        "user-rule": {
+          "passed": 3,
+          "scored": 3
+        },
+        "user-words": {
+          "passed": 3,
+          "scored": 3
+        },
+        "waiting-question": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "handoff-rescue": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.023,
+      "judge_cost_usd": 5.872,
+      "graders": {
+        "file-location": {
+          "passed": 1,
+          "scored": 3
+        },
+        "no-false-approval": {
+          "passed": 3,
+          "scored": 3
+        },
+        "session-line": {
+          "passed": 2,
+          "scored": 3
+        },
+        "skill-fired": {
+          "passed": 1,
+          "scored": 3
+        },
+        "test-rule": {
+          "passed": 1,
+          "scored": 3
+        },
+        "unfinished-marked": {
+          "passed": 3,
+          "scored": 3
+        },
+        "user-decision": {
+          "passed": 3,
+          "scored": 3
+        },
+        "waiting-question": {
+          "passed": 1,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-decision-log": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.012,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-pr-description": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.016,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-summary": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.007,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "nearmiss-wrap-up-pr": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.018,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-before-clear": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.015,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-context-full": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.015,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-dead-session": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.013,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-english": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.016,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    },
+    "trigger-switch-session": {
+      "runs": 3,
+      "errors": 0,
+      "agent_cost_usd": 0.016,
+      "judge_cost_usd": 0.0,
+      "graders": {
+        "skill-fired": {
+          "passed": 3,
+          "scored": 3
+        }
+      }
+    }
+  }
+}
